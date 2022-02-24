@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<section>
+  <div class="container">
+
+    <div class="row">
+      <div class="column">
+        <div class="box-panel">
+          <div class="clearfix">
+            <div class="float-left">
+              <span class="heading-links">Last updated: {{ last_updated }}</span>
+            </div>
+            <div class="float-right">
+              <span class="heading-links"><a href="{{ github_app }}">[github app]</a>&nbsp;&nbsp;<a href="{{ github_website }}">[github website]</a></span>
+            </div>
+          </div>
+          <div class="heading">
+            <h1 class="heading-title">NordVPN Geolocator</h1>
+            <p class="heading-body">Geolocates NordVPN servers that are located in the US.</p>
+          </div>
+        </div>
+      </div> <!-- // row -->
+
+    </div> <!-- // container -->
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="row">
+      <div class="column">
+        <div class="box-panel">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>IP</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for vpn in vpns %}
+              <tr>
+                <td>{{ vpn.name }}</td>
+                <td>{{ vpn.ip }}</td>
+                <td>{{ vpn.city }}</td>
+                <td>{{ vpn.state }}</td>
+                <td>{{ vpn.type }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div> <!-- // row -->
+
+  </div> <!-- // container -->
+</section>
+{% endblock %}
